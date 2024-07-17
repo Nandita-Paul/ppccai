@@ -47,7 +47,7 @@ const Pricing = () => {
           <div className="desc mb-4 mt-3">
             No credit card required. 1/20 Cost cheap enough?
           </div>
-          <div className="testimonial-slider pt-5">
+          <div className="testimonial-slider pt-5 ttt">
             <div className="testimonial-block text-start">
               <div className="logo-t mb-4">
                 ⚡
