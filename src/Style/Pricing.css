@@ -120,9 +120,7 @@ border-bottom: 1px solid rgba(255,255,255,0.2);
 .slick-center .testimonial-block{
   transform: scale(1.1);transition: all 0.5s;
 }
-.testimonial-slider{
-  width: 100%;
-}
+
   @media (max-width: 600px) {
     .transparent-table th,
     .transparent-table td {
@@ -133,6 +131,9 @@ border-bottom: 1px solid rgba(255,255,255,0.2);
   @media (max-width:1199px){
     .testimonial-slider .slick-list{
       overflow: hidden !important;
+    }
+    .testimonial-slider{
+      width: 100%;
     }
    
   }
