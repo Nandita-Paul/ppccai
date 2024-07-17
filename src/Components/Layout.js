@@ -16,8 +16,7 @@ const Layout = () => {
     <>
     
 
-      <header
-        className={`header py-4 ${isActive ? 'active' : ''}`} >
+      <header className={`header py-4 ${isActive ? 'active' : ''}`} >
         <div className="container new">
           <div className="row align-items-center">
             <div className="col-8 col-md-4">
@@ -67,7 +66,7 @@ const Layout = () => {
       <footer className="footer py-5 space-mr mb-0">
         <div className="container">
           <div className="logo mb-4 pb-2">
-            <img src="/images/logo.svg" alt="image" />
+            <img src="/images/logo.svg" alt="imagealt" />
           </div>
 
 
