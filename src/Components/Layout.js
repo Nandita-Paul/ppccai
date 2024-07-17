@@ -18,7 +18,7 @@ const Layout = () => {
 
       <header
         className={`header py-4 ${isActive ? 'active' : ''}`} >
-        <div className="container">
+        <div className="container new">
           <div className="row align-items-center">
             <div className="col-8 col-md-4">
               <div className="logo">
