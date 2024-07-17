@@ -193,6 +193,22 @@ h1, .h1{
 .signup-text{
   font-size: 14px;
 }
+body .slick-dots li button:before{
+content: none;
+}
+body .slick-dots li button{
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255,0.7);
+}
+body .slick-dots .slick-active button{
+background-color: white;
+}
+body .slick-dots{
+  bottom: -85px;
+}
+
 @media (max-width:991px){
   h1,.h1{
     font-size: 40px;
