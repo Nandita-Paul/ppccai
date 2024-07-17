@@ -68,26 +68,6 @@ const Pricing = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="testimonial-block text-start">
-              <div className="logo-t mb-4">
-                ⚡
-              </div>
-              <div className="title mb-4">
-                “This incredible AI web app has transformed the way I manage data and streamline processes.”
-              </div>
-              <div className="content mb-4">
-                Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
-              </div>
-              <div className="profile-sc d-flex align-items-center">
-                <div className="img-sc">
-                  <img src="images/pf.jpg" alt="" />
-                </div>
-                <div className="pf-cnt ms-3">
-                  <p className="m-0">Sarah Johnson</p>
-                  <p className="m-0">Sarah Johnson</p>
-                </div>
-              </div>
-            </div>
             <div className="testimonial-block text-start">
               <div className="logo-t mb-4">
                 ⚡
@@ -127,7 +107,27 @@ const Pricing = () => {
                   <p className="m-0">Sarah Johnson</p>
                 </div>
               </div>
-            </div> */}
+            </div>
+            <div className="testimonial-block text-start">
+              <div className="logo-t mb-4">
+                ⚡
+              </div>
+              <div className="title mb-4">
+                “This incredible AI web app has transformed the way I manage data and streamline processes.”
+              </div>
+              <div className="content mb-4">
+                Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
+              </div>
+              <div className="profile-sc d-flex align-items-center">
+                <div className="img-sc">
+                  <img src="images/pf.jpg" alt="" />
+                </div>
+                <div className="pf-cnt ms-3">
+                  <p className="m-0">Sarah Johnson</p>
+                  <p className="m-0">Sarah Johnson</p>
+                </div>
+              </div>
+            </div>
 
           </div>
 
