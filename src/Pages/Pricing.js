@@ -1,5 +1,38 @@
 import React from "react";
-import "../Style/Pricing.css"
+import "../Style/Pricing.css";
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const settings = {
+  centerMode: true,
+  centerPadding: '30',
+  slidesToShow: 1,
+  dots: true,
+  infinite: true,
+  speed: 500,
+  arrows: false,
+  focusOnSelect: true,
+  autoplay: true,
+  autoplaySpeed: 5000, // Slide change interval in milliseconds
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        centerMode: false,
+      }
+    },
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 1,
+        centerMode: false,
+      }
+    }
+  ]
+ 
+};
 
 const Pricing = () => {
   const data = [
@@ -41,94 +74,95 @@ const Pricing = () => {
         </div>
       </section>
       <section className="testimonial-sc text-center space-mr-m">
-        <div className="container">
+        <div className="container-fluid px-md-5 px-3 overflow-hidden pb-5">
           <div className="top-title mb-3 pb-2">TESTIMONIALS</div>
           <div className="h1">Don't take take word for it. Over 1000+<br /> people trust us</div>
           <div className="desc mb-4 mt-3">
             No credit card required. 1/20 Cost cheap enough?
           </div>
-          <div className="testimonial-slider pt-5 ttt">
-            <div className="testimonial-block text-start">
-              <div className="logo-t mb-4">
-                ⚡
-              </div>
-              <div className="title mb-4">
-                “This incredible AI web app has transformed the way I manage data and streamline processes.”
-              </div>
-              <div className="content mb-4">
-                Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
-              </div>
-              <div className="profile-sc d-flex align-items-center">
-                <div className="img-sc">
-                  <img src="images/pf.jpg" alt="" />
+          <div className="testimonial-slider pt-5">
+            <Slider {...settings}>
+              <div className="testimonial-block text-start">
+                <div className="logo-t mb-4">
+                  ⚡
                 </div>
-                <div className="pf-cnt ms-3">
-                  <p className="m-0 text-white">Sarah Johnson</p>
-                  <p className="m-0 text-white">Sarah Johnson</p>
+                <div className="title mb-4">
+                  “This incredible AI web app has transformed the way I manage data and streamline processes.”
                 </div>
-              </div>
-            </div>
-            <div className="testimonial-block text-start">
-              <div className="logo-t mb-4">
-                ⚡
-              </div>
-              <div className="title mb-4">
-                “This incredible AI web app has transformed the way I manage data and streamline processes.”
-              </div>
-              <div className="content mb-4">
-                Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
-              </div>
-              <div className="profile-sc d-flex align-items-center">
-                <div className="img-sc">
-                  <img src="images/pf.jpg" alt="" />
+                <div className="content mb-4">
+                  Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
                 </div>
-                <div className="pf-cnt ms-3">
-                  <p className="m-0">Sarah Johnson</p>
-                  <p className="m-0">Sarah Johnson</p>
+                <div className="profile-sc d-flex align-items-center">
+                  <div className="img-sc">
+                    <img src="images/pf.jpg" alt="" />
+                  </div>
+                  <div className="pf-cnt ms-3">
+                    <p className="m-0 text-white">Sarah Johnson</p>
+                    <p className="m-0 text-white">Sarah Johnson</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="testimonial-block text-start">
-              <div className="logo-t mb-4">
-                ⚡
-              </div>
-              <div className="title mb-4">
-                “This incredible AI web app has transformed the way I manage data and streamline processes.”
-              </div>
-              <div className="content mb-4">
-                Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
-              </div>
-              <div className="profile-sc d-flex align-items-center">
-                <div className="img-sc">
-                  <img src="images/pf.jpg" alt="" />
+              <div className="testimonial-block text-start">
+                <div className="logo-t mb-4">
+                  ⚡
                 </div>
-                <div className="pf-cnt ms-3">
-                  <p className="m-0">Sarah Johnson</p>
-                  <p className="m-0">Sarah Johnson</p>
+                <div className="title mb-4">
+                  “This incredible AI web app has transformed the way I manage data and streamline processes.”
                 </div>
-              </div>
-            </div>
-            <div className="testimonial-block text-start">
-              <div className="logo-t mb-4">
-                ⚡
-              </div>
-              <div className="title mb-4">
-                “This incredible AI web app has transformed the way I manage data and streamline processes.”
-              </div>
-              <div className="content mb-4">
-                Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
-              </div>
-              <div className="profile-sc d-flex align-items-center">
-                <div className="img-sc">
-                  <img src="images/pf.jpg" alt="" />
+                <div className="content mb-4">
+                  Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
                 </div>
-                <div className="pf-cnt ms-3">
-                  <p className="m-0">Sarah Johnson</p>
-                  <p className="m-0">Sarah Johnson</p>
+                <div className="profile-sc d-flex align-items-center">
+                  <div className="img-sc">
+                    <img src="images/pf.jpg" alt="" />
+                  </div>
+                  <div className="pf-cnt ms-3">
+                    <p className="m-0">Sarah Johnson</p>
+                    <p className="m-0">Sarah Johnson</p>
+                  </div>
                 </div>
               </div>
-            </div>
-
+              <div className="testimonial-block text-start">
+                <div className="logo-t mb-4">
+                  ⚡
+                </div>
+                <div className="title mb-4">
+                  “This incredible AI web app has transformed the way I manage data and streamline processes.”
+                </div>
+                <div className="content mb-4">
+                  Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
+                </div>
+                <div className="profile-sc d-flex align-items-center">
+                  <div className="img-sc">
+                    <img src="images/pf.jpg" alt="" />
+                  </div>
+                  <div className="pf-cnt ms-3">
+                    <p className="m-0">Sarah Johnson</p>
+                    <p className="m-0">Sarah Johnson</p>
+                  </div>
+                </div>
+              </div>
+              <div className="testimonial-block text-start">
+                <div className="logo-t mb-4">
+                  ⚡
+                </div>
+                <div className="title mb-4">
+                  “This incredible AI web app has transformed the way I manage data and streamline processes.”
+                </div>
+                <div className="content mb-4">
+                  Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
+                </div>
+                <div className="profile-sc d-flex align-items-center">
+                  <div className="img-sc">
+                    <img src="images/pf.jpg" alt="" />
+                  </div>
+                  <div className="pf-cnt ms-3">
+                    <p className="m-0">Sarah Johnson</p>
+                    <p className="m-0">Sarah Johnson</p>
+                  </div>
+                </div>
+              </div>
+            </Slider>
           </div>
 
         </div>
