@@ -7,7 +7,7 @@ function Homepage() {
       <section className="banner text-center">
         <div className="container">
           <div className="top-title mb-md-5 pb-1 mb-2">CREATE A CAMPAIGN</div>
-          <h1 className="h1">The fastest way to launch Search Ads</h1>
+          <h1 className="h1">The fastestttt way to launch Search Ads</h1>
           <div className="desc mb-4">
             Generate ads in under 10 seconds using AI by entering the website url you would like to promote below.
           </div>
