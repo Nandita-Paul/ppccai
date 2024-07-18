@@ -54,7 +54,7 @@ function Login() {
 
             <div className="banner-form-sec mt-4">
               <form className='d-flex justify-content-center align-items-center'>
-                <div className="form-group me-3">
+                <div className="form-group ">
                 <Link to="" className='form-control btn btn-border mx-1 mb-3'><img src="/images/google.png" alt="" />Continue With Google</Link>
                 <br/>
                 <Link to="" className='form-control btn btn-border mx-1 mb-4'><img src="/images/microsoft.png" alt="" />Continue With Microsoft</Link>

@@ -21,7 +21,7 @@ const Layout = () => {
           <div className="row align-items-center">
             <div className="col-8 col-md-4">
               <div className="logo">
-                <img src="/images/logo.svg" alt="image" />
+              <Link to="/"> <img src="/images/logo.svg" alt="image" /></Link>
               </div>
 
             </div>

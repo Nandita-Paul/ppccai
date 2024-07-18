@@ -3,6 +3,8 @@ import "../Style/Pricing.css";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { motion } from 'framer-motion';
+
 
 const settings = {
   centerMode: true,
@@ -31,10 +33,12 @@ const settings = {
       }
     }
   ]
- 
+
 };
 
 const Pricing = () => {
+ 
+ 
   const data = [
     { id: 1, name: 'John Doe', age: 28, city: 'New York' },
     { id: 2, name: 'Jane Smith', age: 34, city: 'San Francisco' },
@@ -43,6 +47,12 @@ const Pricing = () => {
   ];
   return (
     <div classNamxe="main">
+       <motion.div
+      initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
+      whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      viewport={{ once: true }}
+      >
       <section className="table-sc text-center space-mr-m">
         <div className="container">
           <div className="top-title mb-3 pb-2">PRICING</div>
@@ -50,7 +60,8 @@ const Pricing = () => {
           <div className="desc mb-4 mt-3">
             No credit card required. 1/20 Cost cheap enough?
           </div>
-          <div className="transparent-table ">
+          <div className="transparent-table position-relative overflow-hidden">
+            <div class="table-inner position-relative overflow-hidden">
             <table class="w-100">
               <thead>
                 <tr>
@@ -70,9 +81,37 @@ const Pricing = () => {
                   </tr>
                 ))}
               </tbody>
-            </table></div>
+            </table>
+            <motion.div
+              className="gradient"
+              initial={{ left: '0px' }}
+              animate={{ left: '100%' }}
+              transition={{
+                duration: 7,
+                ease: 'linear',
+                repeat: Infinity,
+              }}
+            />
+            <motion.div
+              className="gradient-bottom"
+              initial={{ top: '0px' }}
+              animate={{ top: '100%' }}
+              transition={{
+                duration: 7,
+                ease: 'linear',
+                repeat: Infinity,
+              }}
+            />
+          </div></div>
         </div>
       </section>
+      </motion.div>
+      <motion.div
+      initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
+      whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      viewport={{ once: true }}
+      >
       <section className="testimonial-sc text-center space-mr-m">
         <div className="container-fluid px-md-5 px-3 overflow-hidden pb-5">
           <div className="top-title mb-3 pb-2">TESTIMONIALS</div>
@@ -167,6 +206,13 @@ const Pricing = () => {
 
         </div>
       </section>
+      </motion.div>
+      <motion.div
+      initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
+      whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      viewport={{ once: true }}
+      >
       <section className="faq-sc text-center space-mr-m mb-5">
         <div className="container">
           <div className="row justify-content-center">
@@ -210,6 +256,13 @@ const Pricing = () => {
 
         </div>
       </section>
+      </motion.div>
+      <motion.div
+      initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
+      whileInView={{ opacity: 1, y: 0 , once: true}} // Animate to normal position and fully opaque
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      viewport={{ once: true }}
+      >
       <section className="question-sc text-center">
         <div className="container">
           <div className="inner-sc">
@@ -229,6 +282,7 @@ const Pricing = () => {
           </div>
         </div>
       </section>
+      </motion.div>
 
     </div>
   )

@@ -208,7 +208,25 @@ background-color: white;
 body .slick-dots{
   bottom: -85px;
 }
-
+.modal.active{
+  display: block;opacity: 1;
+ 
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.modal-dialog{display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+.close{
+  background-color: black;
+  border: none;
+  color: white;font-weight: 600;font-size: 20px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 2;
+}
 @media (max-width:991px){
   h1,.h1{
     font-size: 40px;
@@ -226,7 +244,7 @@ body .slick-dots{
     margin: 100px 0px;
   }
 }
-@media (max-width:768px){
+@media (max-width:767px){
   .space-pd{
     padding: 80px 0px;
   }
@@ -299,5 +317,8 @@ body .slick-dots{
   }
   .banner{
     padding-top: 60px;
+  }
+  .banner-form-sec .form-control{
+    min-width: auto;width: 100%;
   }
 }
