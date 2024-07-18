@@ -21,7 +21,8 @@
  
   .transparent-table{
     margin-top: 100px;
-    padding-bottom: 130px;
+    padding: 60px 60px 130px 60px;
+    
     background-image: url(/public/images/bg.png);
     background-size: 25%;
     background-position: center bottom;
@@ -120,6 +121,39 @@ border-bottom: 1px solid rgba(255,255,255,0.2);
 .slick-center .testimonial-block{
   transform: scale(1.1);transition: all 0.5s;
 }
+.transparent-table .gradient {
+  content: '';
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 88.2461%);
+  height: 2px;
+  position: absolute;
+  top: -1px;
+  width: 100px;
+  z-index: 1;
+}
+.transparent-table .gradient-bottom {
+    background: linear-gradient(rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 88.2461%);
+    flex: 0 0 auto;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    right: -1px;
+    top: -4px;
+    width: 2px;
+    z-index: 1;
+  
+}
+.transparent-table:after{
+  content: '';
+  width: 190px;
+  height: 140px;
+  background-image: url(/public/images/rgt.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  right: -40px;
+  background-size: contain;
+  top: -0px;
+  z-index: -1;
+}
 
   @media (max-width: 600px) {
     .transparent-table th,
@@ -162,6 +196,12 @@ border-bottom: 1px solid rgba(255,255,255,0.2);
     .img-sc img{
       width: 60px;
       height: 60px;
+    }
+    .transparent-table{
+      padding: 0px 0px 60px 0px;
+    }
+    .transparent-table:after{
+      content: none;
     }
   }
   
