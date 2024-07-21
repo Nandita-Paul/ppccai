@@ -22,7 +22,7 @@ function Homepage() {
             <div className="desc mb-4">
               Generate ads in under 10 seconds using AI by entering the website url you would like to promote below.
             </div>
-            <div className="banner-form-sec mt-4">
+            <div className="banner-form-sec mt-5">
               <form className='d-md-flex justify-content-center align-items-center'>
                 <div className="form-group me-3">
 
@@ -30,7 +30,7 @@ function Homepage() {
 
                 </div>
 
-                <div className="submit-btn mt-md-0 mt-3">
+                <div className="submit-btn mt-md-0 mt-3 ">
                   <button type="button" className="btn " onClick={handleShow}>Generate ad
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" focusable="false" color="rgb(255, 255, 255)"><g color="rgb(255, 255, 255)" weight="bold"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></g></svg>
                   </button>
@@ -60,7 +60,13 @@ function Homepage() {
       >
         <section className="frame-image-sc bg-black space-pd">
           <div className="container">
+            <div className="d-md-block d-none">
             <img src="/images/frame1.png" alt="" />
+            </div>
+            <div className="d-block d-md-none">
+            <img src="/images/mb.png" alt="" />
+            </div>
+           
           </div>
         </section>
       </motion.div>

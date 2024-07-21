@@ -56,11 +56,19 @@ const Pricing = () => {
         <section className="table-sc text-center space-mr-m ">
           <div className="container">
             <div className="top-title mb-3 pb-2">PRICING</div>
-            <h1 className="h1">Supercharge your productivity. Start free now</h1>
-            <div className="desc mb-4 mt-3">
-              No credit card required. 1/20 Cost cheap enough?
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
+              whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              viewport={{ once: true }}
+            >
+              <h1 className="h1">Supercharge your productivity. Start free now</h1>
+              <div className="desc mb-4 mt-3">
+                No credit card required. 1/20 Cost cheap enough?
+              </div>
+            </motion.div>
           </div>
+
           <div className="container container2">
             <div className="transparent-table position-relative overflow-hidden">
               <div class="table-inner position-relative overflow-hidden">
@@ -69,9 +77,9 @@ const Pricing = () => {
                     <tr>
                       <th>
                         <div className="d-lg-flex f-row">
-                        <h3>Compare plans</h3> <a href="" className="btn ms-lg-2 mt-lg-0 mt-2">40% Off</a>
+                          <h3>Compare plans</h3> <a href="" className="btn ms-lg-2 mt-lg-0 mt-2">40% Off</a>
                         </div>
-                        
+
                         <p>Choose your workspace plan according to your organisation</p>
                       </th>
                       <th>
@@ -169,7 +177,7 @@ const Pricing = () => {
                   animate={{ left: '100%' }}
                   transition={{
                     duration: 7,
-                    ease: 'linear', 
+                    ease: 'linear',
                     repeat: Infinity,
                   }}
                 />
@@ -196,97 +204,103 @@ const Pricing = () => {
         viewport={{ once: true }}
       >
         <section className="testimonial-sc text-center space-mr-m">
-          <div className="container-fluid px-md-5 px-3 overflow-hidden pb-5">
+          <div className="container-fluid px-md-5 px-3 px-lg-0 overflow-hidden pb-5">
             <div className="top-title mb-3 pb-2">TESTIMONIALS</div>
             <div className="h1">Don't take take word for it. Over 1000+<br /> people trust us</div>
             <div className="desc mb-4 mt-3">
               No credit card required. 1/20 Cost cheap enough?
             </div>
-            <div className="testimonial-slider pt-5">
-              <Slider {...settings}>
-                <div className="testimonial-block text-start">
-                  <div className="logo-t mb-4">
-                    ⚡
-                  </div>
-                  <div className="title mb-4">
-                    “This incredible AI web app has transformed the way I manage data and streamline processes.”
-                  </div>
-                  <div className="content mb-4">
-                    Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
-                  </div>
-                  <div className="profile-sc d-flex align-items-center">
-                    <div className="img-sc">
-                      <img src="images/pf.jpg" alt="" />
+            <motion.div
+              initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
+              whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              viewport={{ once: true }}
+            >
+              <div className="testimonial-slider pt-5">
+                <Slider {...settings}>
+                  <div className="testimonial-block text-start">
+                    <div className="logo-t mb-4">
+                      ⚡
                     </div>
-                    <div className="pf-cnt ms-3">
-                      <p className="m-0 text-white">Sarah Johnson</p>
-                      <p className="m-0 text-white">Sarah Johnson</p>
+                    <div className="title mb-4">
+                      “This incredible AI web app has transformed the way I manage data and streamline processes.”
                     </div>
-                  </div>
-                </div>
-                <div className="testimonial-block text-start">
-                  <div className="logo-t mb-4">
-                    ⚡
-                  </div>
-                  <div className="title mb-4">
-                    “This incredible AI web app has transformed the way I manage data and streamline processes.”
-                  </div>
-                  <div className="content mb-4">
-                    Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
-                  </div>
-                  <div className="profile-sc d-flex align-items-center">
-                    <div className="img-sc">
-                      <img src="images/pf.jpg" alt="" />
+                    <div className="content mb-4">
+                      Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
                     </div>
-                    <div className="pf-cnt ms-3">
-                      <p className="m-0">Sarah Johnson</p>
-                      <p className="m-0">Sarah Johnson</p>
+                    <div className="profile-sc d-flex align-items-center">
+                      <div className="img-sc">
+                        <img src="images/pf.jpg" alt="" />
+                      </div>
+                      <div className="pf-cnt ms-3">
+                        <p className="m-0 text-white">Sarah Johnson</p>
+                        <p className="m-0 text-white">Sarah Johnson</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="testimonial-block text-start">
-                  <div className="logo-t mb-4">
-                    ⚡
-                  </div>
-                  <div className="title mb-4">
-                    “This incredible AI web app has transformed the way I manage data and streamline processes.”
-                  </div>
-                  <div className="content mb-4">
-                    Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
-                  </div>
-                  <div className="profile-sc d-flex align-items-center">
-                    <div className="img-sc">
-                      <img src="images/pf.jpg" alt="" />
+                  <div className="testimonial-block text-start">
+                    <div className="logo-t mb-4">
+                      ⚡
                     </div>
-                    <div className="pf-cnt ms-3">
-                      <p className="m-0">Sarah Johnson</p>
-                      <p className="m-0">Sarah Johnson</p>
+                    <div className="title mb-4">
+                      “This incredible AI web app has transformed the way I manage data and streamline processes.”
                     </div>
-                  </div>
-                </div>
-                <div className="testimonial-block text-start">
-                  <div className="logo-t mb-4">
-                    ⚡
-                  </div>
-                  <div className="title mb-4">
-                    “This incredible AI web app has transformed the way I manage data and streamline processes.”
-                  </div>
-                  <div className="content mb-4">
-                    Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
-                  </div>
-                  <div className="profile-sc d-flex align-items-center">
-                    <div className="img-sc">
-                      <img src="images/pf.jpg" alt="" />
+                    <div className="content mb-4">
+                      Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
                     </div>
-                    <div className="pf-cnt ms-3">
-                      <p className="m-0">Sarah Johnson</p>
-                      <p className="m-0">Sarah Johnson</p>
+                    <div className="profile-sc d-flex align-items-center">
+                      <div className="img-sc">
+                        <img src="images/pf.jpg" alt="" />
+                      </div>
+                      <div className="pf-cnt ms-3">
+                        <p className="m-0">Sarah Johnson</p>
+                        <p className="m-0">Sarah Johnson</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Slider>
-            </div>
-
+                  <div className="testimonial-block text-start">
+                    <div className="logo-t mb-4">
+                      ⚡
+                    </div>
+                    <div className="title mb-4">
+                      “This incredible AI web app has transformed the way I manage data and streamline processes.”
+                    </div>
+                    <div className="content mb-4">
+                      Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
+                    </div>
+                    <div className="profile-sc d-flex align-items-center">
+                      <div className="img-sc">
+                        <img src="images/pf.jpg" alt="" />
+                      </div>
+                      <div className="pf-cnt ms-3">
+                        <p className="m-0">Sarah Johnson</p>
+                        <p className="m-0">Sarah Johnson</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="testimonial-block text-start">
+                    <div className="logo-t mb-4">
+                      ⚡
+                    </div>
+                    <div className="title mb-4">
+                      “This incredible AI web app has transformed the way I manage data and streamline processes.”
+                    </div>
+                    <div className="content mb-4">
+                      Their creativity, attention to detail, and prompt communication set them apart. Our website looks stunning, and our online campaigns are driving great results.
+                    </div>
+                    <div className="profile-sc d-flex align-items-center">
+                      <div className="img-sc">
+                        <img src="images/pf.jpg" alt="" />
+                      </div>
+                      <div className="pf-cnt ms-3">
+                        <p className="m-0">Sarah Johnson</p>
+                        <p className="m-0">Sarah Johnson</p>
+                      </div>
+                    </div>
+                  </div>
+                </Slider>
+              </div>
+            </motion.div>
           </div>
         </section>
       </motion.div>
@@ -301,7 +315,20 @@ const Pricing = () => {
             <div className="row justify-content-center">
               <div className="col-md-9">
                 <div className="h1">Frequently asked questions</div>
+                <motion.div
+              initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
+              whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              viewport={{ once: true }}
+            >
                 <p>Everything you need to know about the product and billing.</p>
+                </motion.div>
+                <motion.div
+              initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
+              whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              viewport={{ once: true }}
+            >
                 <div class="accordion accordion-flush text-start mt-5" id="accordionFlushExample">
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
@@ -334,6 +361,7 @@ const Pricing = () => {
                     </div>
                   </div>
                 </div>
+                </motion.div>
               </div>
             </div>
 

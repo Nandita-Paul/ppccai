@@ -33,7 +33,7 @@ const Layout = () => {
             <div className=" col-md-4 active-mb">
 
               <nav class="header-nav">
-                <ul className="d-md-flex justify-content-center">
+                <ul className="d-md-flex justify-content-center mb-0">
                   <li>
                     <Link to="/">Generate</Link>
                   </li>

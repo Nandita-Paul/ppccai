@@ -98,61 +98,62 @@ const Resource = () => {
         <section className="banner banner-resources text-center ">
           <div className="container">
             <div className="top-title mb-4 pb-1">RESOURCES</div>
-            <h1 className="h2">
+            <h1 className="h1">
               We present our findings here. We aim to be thorough, unbiased and
               always inquisitive.
             </h1>
-            <div className="desc mb-4">
+            <div className="desc mb-4 mt-3">
               At CogiAI our mission is to research and curate the best AI
-              technologies and provide them to our clients in an easy to consume
+              technologies and provide them<br /> to our clients in an easy to consume
               manner so all their employees can acquire generative AI superpowers.
             </div>
+            </div>
             <motion.div
-        initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-        whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
-            <div className=" py-4">
-              <div className="container">
-                <div className="row align-items-center">
-                  <div className="col-md-4">
-                    <div class="container11">
-                      <div class="icon">⚡</div>
-                      <div class="title">Chat Portal</div>
-                      <div class="desc mb-4">
-                        Enterprise grade web-based portal providing safe and
-                        secure access to multiple text and image generative public
-                        and private AIs.
+              initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
+              whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              viewport={{ once: true }}
+            >
+              <div className=" py-4">
+                <div className="container cnt2">
+                  <div className="row align-items-center">
+                    <div className="col-md-4">
+                      <div class="container11">
+                        <div class="icon">⚡</div>
+                        <div class="title">Chat Portal</div>
+                        <div class="desc mb-4">
+                          Enterprise grade web-based portal providing safe and
+                          secure access to multiple text and image generative public
+                          and private AIs.
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div class="container11">
-                      <div class="icon">⚡</div>
-                      <div class="title">Mobile Application</div>
-                      <div class="desc mb-4">
-                        Replicates portal capabilities in a mobile friendly and
-                        easy to use application. Both IOS and Android are fully
-                        supported.
+                    <div className="col-md-4">
+                      <div class="container11">
+                        <div class="icon">⚡</div>
+                        <div class="title">Mobile Application</div>
+                        <div class="desc mb-4">
+                          Replicates portal capabilities in a mobile friendly and
+                          easy to use application. Both IOS and Android are fully
+                          supported.
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div class="container11">
-                      <div class="icon">⚡</div>
-                      <div class="title">Administration Portal</div>
-                      <div class="desc mb-4">
-                        Organizational administrators can manage employee access,
-                        GDPR and other data upload rules and fully audit all
-                        access.
+                    <div className="col-md-4">
+                      <div class="container11">
+                        <div class="icon">⚡</div>
+                        <div class="title">Administration Portal</div>
+                        <div class="desc mb-4">
+                          Organizational administrators can manage employee access,
+                          GDPR and other data upload rules and fully audit all
+                          access.
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div></motion.div>
-          </div>
+              </div></motion.div>
+          
         </section> </motion.div>  <motion.div
           initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
           whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
@@ -162,7 +163,7 @@ const Resource = () => {
         <section className="resources-slider mt-md-5 mt-2 pt-md-5 ">
           <div className="container">
             <div className=" resource-banner1">
-              <div className="top-title mb-4 pb-1"><h2 className="text-white"> Research</h2></div>
+              <div className=" mb-4"><h2 className="text-white"> Research</h2></div>
               <div className="desc mb-4">
                 orem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor<br /> incididunt ut labore et dolore magna aliqua.
@@ -225,7 +226,7 @@ const Resource = () => {
         <section className="resources-slider mt-5 pt-5 ">
           <div className="container">
             <div className=" resource-banner1">
-              <div className="top-title mb-4 pb-1"><h2 className="text-white"> Enterprise</h2></div>
+              <div className=" mb-4"><h2 className="text-white"> Enterprise</h2></div>
               <div className="desc mb-4">
                 orem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor<br /> incididunt ut labore et dolore magna aliqua.

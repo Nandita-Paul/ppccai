@@ -70,6 +70,31 @@
 .resources-slider .container{
     max-width: 1220px;
 }
+.banner-resources h1, .resource-banner1 h2{
+    background: -webkit-linear-gradient(#eee, #333);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.banner-resources .title{
+    font-size: 20px;
+    
+    background: -webkit-linear-gradient(left, #eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;font-weight: 600;
+}
+@media (min-width:1200px){
+    .banner-resources h1{
+       font-size: 54px;
+    }
+    .banner-resources .cnt2{
+        max-width: 1540px;
+    }
+    .resource-banner1 h2{
+        font-size: 48px;
+    }
+}
 @media(max-width:767px){
     .vertical-slider.image-slider .vertical-block img{
         position: relative;
