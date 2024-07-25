@@ -99,7 +99,7 @@ const Resource = () => {
           <div className="container">
             <div className="top-title mb-4 pb-1">RESOURCES</div>
             <h1 className="h1">
-              We present our findings here. We aim to be thorough, unbiased and
+              We present our findings here. We aim to be<br/> thorough, unbiased and
               always inquisitive.
             </h1>
             <div className="desc mb-4 mt-3">

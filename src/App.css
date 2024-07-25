@@ -244,6 +244,52 @@ height: 100vh;
   top: 20px;
   z-index: 2;
 }
+.label-sc{
+  display: flex;font-weight: 500;border-radius: 5px;
+  align-items: center;background-color: rgba(255, 255, 255, 0.06);color: white;
+  margin-right: 10px;border-radius: 5px;font-size: 14px;padding: 8px 16px;margin-bottom: 12px;
+}
+.label-sc input{
+  margin-right: 8px;accent-color: rgb(0, 0, 0);
+
+}
+.amounsc1{
+  font-weight: 500;font-size: 14px;
+}
+.amounsc1 input{
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 5px;
+ color: white;padding: 5px 10px;
+  border: none;
+  width: 60px;
+}
+.more-settings.active .settings-inner{
+  opacity: 1;height: 100%;transition: all 0.5s;
+}
+.more-settings .btn{
+  cursor: pointer;
+}
+.more-settings.active  .btn{
+  width: 100%;text-align: center;justify-content: center;
+}
+.ross{
+  cursor: pointer;
+}
+.settings-inner{
+  opacity: 0;height: 0;transition: all 0.5s;
+}
+input:focus{
+  outline: none !important;
+}
+.outer-more-settings{
+  width: 250px;
+}
+.btm-shadow{
+background: -webkit-linear-gradient(#eee, #333);
+    background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 @media(min-width:1200px){
   .footer{
     padding-top: 100px;

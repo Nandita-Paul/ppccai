@@ -73,7 +73,7 @@
 .banner-resources h1, .resource-banner1 h2{
     background: -webkit-linear-gradient(#eee, #333);
 -webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+-webkit-text-fill-color: transparent; 
 }
 .banner-resources .title{
     font-size: 20px;
@@ -83,6 +83,9 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;font-weight: 600;
+}
+.more-settings{
+    width: 250px;
 }
 @media (min-width:1200px){
     .banner-resources h1{

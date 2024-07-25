@@ -6,21 +6,6 @@ import publicly from "../assets/images/frame1.png";
 
 function Login() {
 
-  const cardVariants = {
-    offscreen: {
-      y: 900
-    },
-    onscreen: {
-      y: 50,
-      rotate: -0,
-      transition: {
-        type: "spring",
-        bounce: 0.4,
-        duration: 0.8
-      }
-    }
-  };
-  
   return (
     <>
       <header className="header py-4">
@@ -65,19 +50,6 @@ function Login() {
             Already have an account? <span className=''>Sign Up</span>
             </p>
         </div>
-        <div className="App">
-        <motion.div
-        className="card-container"
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.8 }}
-      >
-        <div className="splash"  />
-        <motion.div className="card" variants={cardVariants}>
-        🍅
-        </motion.div>
-      </motion.div>
-    </div>
       </main>
     </>
 
