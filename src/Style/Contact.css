@@ -1,0 +1,43 @@
+.contact-sc .btn{
+    padding: 10px 30px;
+}
+.google-sc p{
+    color: white;font-weight: 500;
+}
+.tab-sc .btn{
+    font-size: 18px;
+
+}
+
+.tab-content ul li{
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+}
+.tab-content .btn-sc{
+    display: flex;
+    align-items: center;
+}
+.tab-sc .active-btn{
+    padding-left: 35px;padding-right: 35px;
+}
+.tab-content .btn-sc svg{
+    width: 20px;
+    fill: white;
+}
+.tab-content .btn-sc svg path{
+    fill:white
+}
+.tab-content-inner{
+    background-size: contain ;
+    background-position: right 100px;
+    background-repeat: no-repeat;
+    background-color: rgb(15, 15, 15);
+    border-radius: 35px;
+    padding: 50px 300px 50px 50px;
+   
+}
+.tab-inner1{
+    background-image: url(/public/images/bg1.webp);
+}

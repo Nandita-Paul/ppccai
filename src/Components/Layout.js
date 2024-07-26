@@ -1,5 +1,5 @@
-import { Outlet, Link , useLocation} from "react-router-dom";
-import React, { useEffect,useState } from 'react';
+import { Outlet, Link, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 import { Squash as Hamburger } from "hamburger-react";
 
 const Layout = () => {
@@ -14,14 +14,12 @@ const Layout = () => {
   };
   return (
     <>
-    
-
       <header className={`header py-4 ${isActive ? 'active' : ''}`} >
         <div className="container new">
           <div className="row align-items-center">
             <div className="col-8 col-md-4">
               <div className="logo">
-              <Link to="/"> <img src="/images/logo.svg" alt="image" /></Link>
+                <Link to="/"> <img src="/images/logo.svg" alt="image" /></Link>
               </div>
 
             </div>
@@ -33,7 +31,7 @@ const Layout = () => {
             <div className=" col-md-4 active-mb">
 
               <nav class="header-nav">
-                <ul className="d-md-flex justify-content-center">
+                <ul className="d-md-flex justify-content-center mb-0">
                   <li>
                     <Link to="/">Generate</Link>
                   </li>
@@ -68,8 +66,6 @@ const Layout = () => {
           <div className="logo mb-4 pb-2">
             <img src="/images/logo.svg" alt="imagealt" />
           </div>
-
-
           <p>
             Using AI to improve cost-efficiency and<br /> accessibility of PPC advertising.
           </p>
@@ -79,7 +75,7 @@ const Layout = () => {
                 <li><a href="">Generate</a></li>
                 <li><a href="">Resources</a></li>
                 <li><a href="">Pricing</a></li>
-                <li><a href="">Contact</a></li>
+                <li><Link to="/contact">Contact</Link></li>
               </ul></nav>
           </div>
           <div className="copy-right-sc">
