@@ -209,13 +209,13 @@ function Homepage() {
               <span aria-hidden="true">&times;</span>
             </button>
 
-            {/* <div className="modal-body">
+            <div className="modal-body">
               <p className="mb-2 text-black"><strong>Ad.</strong> example.business.com</p>
               <h3 className="mb-2 text-black"><strong>Modern Design.Co</strong></h3>
               <p className="mb-0 text-black">Ther best modal</p>
-            </div> */}
+            </div>
 
-            <div className="modal-body">
+            {/* <div className="modal-body">
              {!showModalNext ? 
                   <>
                  <input placeholder='Sheet URL'
@@ -228,7 +228,7 @@ function Homepage() {
                />
                <button type="button" onClick={handleSubmit} aria-label="Close">
                  {loading ?  <div className="loading-spinner">
-                  {/* <div className="spinner"></div> */}
+               
                   <p>Loading...</p>
                 </div>: "Submit" }
                </button>
@@ -236,12 +236,7 @@ function Homepage() {
                :
               <p>{"siteData"}</p>
                 }
-               
-                
-                
-
-
-            </div>
+            </div> */}
 
           </div>
         </div>
