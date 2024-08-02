@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { motion } from 'framer-motion';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
+import AnimatedSection from '../Components/AnimatedSection';
 import axios from 'axios';
 // import { Modal, Button } from 'react-bootstrap';
 function Homepage() {
+  const { scrollY } = useViewportScroll();
+  const scale = useTransform(scrollY, [0, 1000], [1, 0.9]); // Adjust the range [0, 1000] and scale values for smooth decrease
+
   const [showModal, setShowModal] = useState(false);
   const [showModalNext, setShowModalNext] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -50,86 +54,170 @@ function Homepage() {
     }
   };
 
-  console.log("siteData",siteData);
+  console.log("siteData", siteData);
   return (
     <div className="main">
-      <motion.div
-        initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-        whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
+      <div className="outer-banner position-relative"
       >
+
         <section className="banner text-center">
-          <div className="container">
-            <div className="top-title mb-md-5 pb-1 mb-2">CREATE A CAMPAIGN</div>
-            <h1 className="h1">The fastest way to launch Search Ads</h1>
-            <div className="desc mb-4">
-              Generate ads in under 10 seconds using AI by entering the website url you would like to promote below.
-            </div>
-            <div className="banner-form-sec mt-5">
-              <form className='d-md-flex justify-content-center align-items-center'>
-                <div className="form-group me-3">
+          <AnimatedSection>
+            <motion.div style={{ scale }}>
+              <div className="container">
+                <AnimatedSection>
+                  <div className="top-title mb-md-5 pb-1 mb-2">CREATE A CAMPAIGN</div>
+                </AnimatedSection>
+                <AnimatedSection>
+                  <h1 className="h1">The fastest way to launch Search Ads</h1>
+                  <div className="desc mb-4">
+                    Generate ads in under 10 seconds using AI by entering the website url you would like to promote below.
+                  </div>
+                </AnimatedSection>
+                <AnimatedSection>
 
-                  <input placeholder='www.yourwebsite.com'
-                    className='form-control' name="site_url" value={generate.site_url}
-                    onChange={handleFunc}
-                  />
+                  <div className="banner-form-sec mt-5">
+                    <form className='d-md-flex justify-content-center align-items-center'>
+                      <div className="form-group me-3">
 
-                </div>
+                        <input placeholder='www.yourwebsite.com'
+                          className='form-control' name="site_url" value={generate.site_url}
+                          onChange={handleFunc}
+                        />
 
-                <div className="submit-btn mt-md-0 mt-3 ">
-                  <button type="button" className="btn " onClick={handleShow}>Generate ad
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" focusable="false" color="rgb(255, 255, 255)"><g color="rgb(255, 255, 255)" weight="bold"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></g></svg>
+                      </div>
 
-                  </button>
+                      <div className="submit-btn mt-md-0 mt-3 ">
+                        <button type="button" className="btn " onClick={handleSubmit}>Generate ad
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" focusable="false" color="rgb(255, 255, 255)"><g color="rgb(255, 255, 255)" weight="bold"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></g></svg>
 
-                </div>
+                        </button>
 
-              </form>
-            </div>
-            <div className="or-sec mb-4 mt-5">
-              OR
-            </div>
-            <div className="signup-text mb-3">
-              Sign up free with Google or Microsoft.
-            </div>
-            <div className="btm-btn-sc d-md-flex justify-content-center">
-              <a href="" className='btn btn-border mx-1'><img src="/images/google.png" alt="" />Continue With Google</a>
-              <a href="" className='btn btn-border mx-1'><img src="/images/microsoft.png" alt="" />Continue With Microsoft</a>
-            </div>
-          </div>
+                      </div>
+
+                    </form>
+
+                  </div>
+                </AnimatedSection>
+                <AnimatedSection>
+                  <div className="or-sec mb-4 mt-5">
+                    OR
+                  </div>
+                  <div className="signup-text mb-3">
+                    Sign up free with Google or Microsoft.
+                  </div>
+                  <div className="btm-btn-sc d-md-flex justify-content-center">
+                    <a href="" className='btn btn-border mx-1'><img src="/images/google.png" alt="" />Continue With Google</a>
+                    <a href="" className='btn btn-border mx-1'><img src="/images/microsoft.png" alt="" />Continue With Microsoft</a>
+                  </div>  </AnimatedSection>
+              </div>  </motion.div> </AnimatedSection>
         </section>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-        whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
-        <section className="frame-image-sc bg-black space-pd">
-          <div className="container">
-            <div className="d-md-block d-none">
-              <img src="/images/frame1.png" alt="" />
-            </div>
-            <div className="d-block d-md-none">
-              <img src="/images/mb.png" alt="" />
-            </div>
 
-          </div>
+
+        <section className="frame-image-sc bg-black space-mr">
+          <AnimatedSection>
+            <div className="wrapper">
+              <div className="desktop_mockup">
+                <div className="google_interface">
+                  <div className="google_serach">
+                    <input type="text" className="google_serach_input"/>
+                  </div>
+                  <div className="google_serach_result">
+                    <div className="serach_item">
+                      <div className="brand_logo_img">
+                        <img src="images/download.png" alt=""/>
+                      </div>
+                      <div className="brand_info">
+                        <div className="barnd_name">
+                          <h6>GetMunch</h6>
+                          <div className="link">
+                            <a href="https://www.getmunch.com" target="_blank" className="website_link">https://www.getmunch.com</a>
+                            <a href="" className="modal_dot"><i className='bx bx-dots-vertical-rounded' ></i></a>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div className="serach_result_main">
+
+                      <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujnDj13SG5uIE0xTl617SuBP3vYSLCBm1vr0jMR6uF-aQm83rxWE5xRoCpd0QAvD_BwE" className="" target="_blank">
+                        <h1>  GetMunch - AI Video Editing | Munch App - Register Now</h1>
+                      </a>
+
+                      <p className="info"><span className="brand_name_highlisght">Munch</span> extracts the most engaging, trending and impactful clips from your long-form videos.
+                        <span className="brand_name_highlisght">Munch</span> is centered around machine learning capabilities, designed to keep what's important.</p>
+                    </div>
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" className="">
+                            GetMunch Pricing
+                          </a>
+                          <div className="icon d-none-icon"><i className='bx bx-chevron-right'></i></div>
+                        </div>
+                        <p className="info d-none">Check Out The Pricing And Pick The Best Plan</p>
+                      </div>
+                    </div>
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" className="">
+                            Login
+                          </a>
+                          <div className="icon d-none-icon"><i className='bx bx-chevron-right'></i></div>
+                        </div>
+                        <p className="info d-none">Enter the Required Details To Log In To Your Account.</p>
+                      </div>
+                    </div>
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" className="">
+                            Main Page
+                          </a>
+                          <div className="icon d-none-icon"><i className='bx bx-chevron-right'></i></div>
+                        </div>
+                        <p className="info d-none">Get To Know Us And Find Out More</p>
+                      </div>
+                    </div>
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" className="">
+                            Become An Affiliate
+                          </a>
+                          <div className="icon d-none-icon"><i className='bx bx-chevron-right'></i></div>
+                        </div>
+
+                        <p className="info d-none">Fill Out the Form With Your Details To Join Our Program.</p>
+                      </div>
+                    </div>
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" className="">
+                            Our Blog
+                          </a>
+                          <div className="icon d-none-icon"><i className='bx bx-chevron-right'></i></div>
+                        </div>
+
+                        <p className="info d-none">Check Out Our Blog And Get Inspired</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
         </section>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-        whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
+
+      </div>
+      <AnimatedSection>
         <section className="extract-sc">
           <div className="container">
             <div className="row align-items-center justify-content-between">
               <div className="col-md-7 lft">
                 <h2>Extract Campaign Data</h2>
-                <p class="my-3">Launch your Google Ads campaign by exporting to Excel and importing it into the Google Ads Editor.</p>
+                <p className="my-3">Launch your Google Ads campaign by exporting to Excel and importing it into the Google Ads Editor.</p>
 
                 <div className="btn-sc d-md-flex align-items-center">
                   <div>
@@ -198,7 +286,7 @@ function Homepage() {
           </div>
 
         </section>
-      </motion.div>
+      </AnimatedSection>
 
       <div className={`modal fade ${showModal ? 'active' : ''}`} id="myModal" tabIndex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div className="modal-dialog">
@@ -214,6 +302,7 @@ function Homepage() {
               <h3 className="mb-2 text-black"><strong>Modern Design.Co</strong></h3>
               <p className="mb-0 text-black">Ther best modal</p>
             </div>
+<<<<<<< HEAD
 
             {/* <div className="modal-body">
              {!showModalNext ? 
@@ -237,11 +326,41 @@ function Homepage() {
               <p>{"siteData"}</p>
                 }
             </div> */}
+=======
+>>>>>>> a9ac72486b09b1f4b31cc8e31ea5fa93344f90f4
+
+            {/* <div className="modal-body">
+              {!showModalNext ?
+                <>
+                  <input placeholder='Sheet URL'
+                    className='form-control mb-2' name="sheet_url" value={generate.sheet_url}
+                    onChange={handleFunc}
+                  />
+                  <input placeholder='number of ads'
+                    className='form-control  mb-4' name="number_of_ads" value={generate.number_of_ads}
+                    onChange={handleFunc}
+                  />
+                  <button type="button" onClick={handleSubmit} aria-label="Close">
+                    {loading ? <div className="loading-spinner">
+                    
+                      <p>Loading...</p>
+                    </div> : "Submit"}
+                  </button>
+                </>
+                :
+                <p>{"siteData"}</p>
+              }
+
+
+
+
+
+            </div> */}
 
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 export default Homepage;
