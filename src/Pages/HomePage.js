@@ -302,32 +302,6 @@ function Homepage() {
               <h3 className="mb-2 text-black"><strong>Modern Design.Co</strong></h3>
               <p className="mb-0 text-black">Ther best modal</p>
             </div>
-<<<<<<< HEAD
-
-            {/* <div className="modal-body">
-             {!showModalNext ? 
-                  <>
-                 <input placeholder='Sheet URL'
-                 className='form-control mb-2' name="sheet_url" value={generate.sheet_url}
-                 onChange={handleFunc}
-               />
-               <input placeholder='number of ads'
-                 className='form-control  mb-4' name="number_of_ads" value={generate.number_of_ads}
-                 onChange={handleFunc}
-               />
-               <button type="button" onClick={handleSubmit} aria-label="Close">
-                 {loading ?  <div className="loading-spinner">
-               
-                  <p>Loading...</p>
-                </div>: "Submit" }
-               </button>
-                </>
-               :
-              <p>{"siteData"}</p>
-                }
-            </div> */}
-=======
->>>>>>> a9ac72486b09b1f4b31cc8e31ea5fa93344f90f4
 
             {/* <div className="modal-body">
               {!showModalNext ?
