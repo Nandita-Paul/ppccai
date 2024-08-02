@@ -115,14 +115,97 @@ function Homepage() {
 
         <section className="frame-image-sc bg-black space-mr">
           <AnimatedSection>
-            <div className="container">
-              <div className="d-md-block d-none">
-                <img src="/images/frame1.png" alt="" />
-              </div>
-              <div className="d-block d-md-none">
-                <img src="/images/mb.png" alt="" />
-              </div>
+            <div className="wrapper">
+              <div className="desktop_mockup">
+                <div className="google_interface">
+                  <div className="google_serach">
+                    <input type="text" className="google_serach_input"/>
+                  </div>
+                  <div className="google_serach_result">
+                    <div className="serach_item">
+                      <div className="brand_logo_img">
+                        <img src="images/download.png" alt=""/>
+                      </div>
+                      <div className="brand_info">
+                        <div className="barnd_name">
+                          <h6>GetMunch</h6>
+                          <div className="link">
+                            <a href="https://www.getmunch.com" target="_blank" className="website_link">https://www.getmunch.com</a>
+                            <a href="" className="modal_dot"><i className='bx bx-dots-vertical-rounded' ></i></a>
+                          </div>
 
+                        </div>
+                      </div>
+                    </div>
+                    <div className="serach_result_main">
+
+                      <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujnDj13SG5uIE0xTl617SuBP3vYSLCBm1vr0jMR6uF-aQm83rxWE5xRoCpd0QAvD_BwE" className="" target="_blank">
+                        <h1>  GetMunch - AI Video Editing | Munch App - Register Now</h1>
+                      </a>
+
+                      <p className="info"><span className="brand_name_highlisght">Munch</span> extracts the most engaging, trending and impactful clips from your long-form videos.
+                        <span className="brand_name_highlisght">Munch</span> is centered around machine learning capabilities, designed to keep what's important.</p>
+                    </div>
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" className="">
+                            GetMunch Pricing
+                          </a>
+                          <div className="icon d-none-icon"><i className='bx bx-chevron-right'></i></div>
+                        </div>
+                        <p className="info d-none">Check Out The Pricing And Pick The Best Plan</p>
+                      </div>
+                    </div>
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" className="">
+                            Login
+                          </a>
+                          <div className="icon d-none-icon"><i className='bx bx-chevron-right'></i></div>
+                        </div>
+                        <p className="info d-none">Enter the Required Details To Log In To Your Account.</p>
+                      </div>
+                    </div>
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" className="">
+                            Main Page
+                          </a>
+                          <div className="icon d-none-icon"><i className='bx bx-chevron-right'></i></div>
+                        </div>
+                        <p className="info d-none">Get To Know Us And Find Out More</p>
+                      </div>
+                    </div>
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" className="">
+                            Become An Affiliate
+                          </a>
+                          <div className="icon d-none-icon"><i className='bx bx-chevron-right'></i></div>
+                        </div>
+
+                        <p className="info d-none">Fill Out the Form With Your Details To Join Our Program.</p>
+                      </div>
+                    </div>
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" className="">
+                            Our Blog
+                          </a>
+                          <div className="icon d-none-icon"><i className='bx bx-chevron-right'></i></div>
+                        </div>
+
+                        <p className="info d-none">Check Out Our Blog And Get Inspired</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </AnimatedSection>
         </section>
@@ -134,7 +217,7 @@ function Homepage() {
             <div className="row align-items-center justify-content-between">
               <div className="col-md-7 lft">
                 <h2>Extract Campaign Data</h2>
-                <p class="my-3">Launch your Google Ads campaign by exporting to Excel and importing it into the Google Ads Editor.</p>
+                <p className="my-3">Launch your Google Ads campaign by exporting to Excel and importing it into the Google Ads Editor.</p>
 
                 <div className="btn-sc d-md-flex align-items-center">
                   <div>
