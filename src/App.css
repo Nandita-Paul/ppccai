@@ -157,11 +157,25 @@ padding: 8px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.outer-banner{
+  overflow: visible
+
+}
 .banner h1{
   color: #e6e6e6;
 }
 .banner{
   padding-top: 140px;
+  position: sticky;overflow: visible; position: -webkit-sticky;top:0;z-index: 1;
+}
+.frame-image-sc img{
+  position: relative;
+  z-index: 2;
+  /* background-color: rgb(0,0,0); */
+}
+.frame-image-sc{
+  background-color: rgb(0,0,0);position: relative;
+  z-index: 2;
 }
 h1, .h1{
   font-size: 52px;
@@ -290,6 +304,9 @@ background: -webkit-linear-gradient(#eee, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+body.hidden #root{
+  height: 0px;overflow: hidden;
+}
 @media(min-width:1200px){
   .footer{
     padding-top: 100px;
@@ -388,5 +405,10 @@ background: -webkit-linear-gradient(#eee, #333);
   }
   .banner-form-sec .form-control{
     min-width: auto;width: 100%;
+  }
+}
+@media (max-width:1199px){
+  .banner{
+    position: relative;
   }
 }

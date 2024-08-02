@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Style/Resource.css";
-import Image1 from "../assets/images/Image1.png";
-import Image2 from "../assets/images/Image2.png";
 import { motion, AnimatePresence } from "framer-motion";
+import AnimatedSection from '../Components/AnimatedSection';
 
 const Resource = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -89,12 +88,7 @@ const Resource = () => {
 
   return (
     <div className="main">
-      <motion.div
-        initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-        whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
+     <AnimatedSection>
         <section className="banner banner-resources text-center ">
           <div className="container">
             <div className="top-title mb-4 pb-1">RESOURCES</div>
@@ -108,12 +102,7 @@ const Resource = () => {
               manner so all their employees can acquire generative AI superpowers.
             </div>
             </div>
-            <motion.div
-              initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-              whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              viewport={{ once: true }}
-            >
+            <AnimatedSection>
               <div className=" py-4">
                 <div className="container cnt2">
                   <div className="row align-items-center">
@@ -152,14 +141,9 @@ const Resource = () => {
                     </div>
                   </div>
                 </div>
-              </div></motion.div>
+              </div> </AnimatedSection>
           
-        </section> </motion.div>  <motion.div
-          initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-          whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          viewport={{ once: true }}
-        >
+        </section>  </AnimatedSection>  <AnimatedSection>
         <section className="resources-slider mt-md-5 mt-2 pt-md-5 ">
           <div className="container">
             <div className=" resource-banner1">
@@ -217,12 +201,7 @@ const Resource = () => {
               </div>
             </div>
           </div>
-        </section> </motion.div>  <motion.div
-          initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-          whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          viewport={{ once: true }}
-        >
+        </section>  </AnimatedSection>  <AnimatedSection>
         <section className="resources-slider mt-5 pt-5 ">
           <div className="container">
             <div className=" resource-banner1">
@@ -280,7 +259,7 @@ const Resource = () => {
               </div>
             </div>
           </div>
-        </section> </motion.div>
+        </section>  </AnimatedSection>
     </div>
   );
 };

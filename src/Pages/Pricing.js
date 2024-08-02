@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from 'framer-motion';
 
-
+import AnimatedSection from '../Components/AnimatedSection';
 const settings = {
   centerMode: true,
   centerPadding: '30',
@@ -47,26 +47,16 @@ const Pricing = () => {
   ];
   return (
     <div classNamxe="main">
-      <motion.div
-        initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-        whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
+       <AnimatedSection>
         <section className="table-sc text-center space-mr-m ">
           <div className="container">
             <div className="top-title mb-3 pb-2">PRICING</div>
-            <motion.div
-              initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-              whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              viewport={{ once: true }}
-            >
+            <AnimatedSection>
               <h1 className="h1">Supercharge your productivity. Start free now</h1>
               <div className="desc mb-4 mt-3">
                 No credit card required. 1/20 Cost cheap enough?
               </div>
-            </motion.div>
+             </AnimatedSection>
           </div>
 
           <div className="container container2">
@@ -196,13 +186,8 @@ const Pricing = () => {
 
           </div>
         </section>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-        whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
+       </AnimatedSection>
+      <AnimatedSection>
         <section className="testimonial-sc text-center space-mr-m">
           <div className="container-fluid px-md-5 px-3 px-lg-0 overflow-hidden pb-5">
             <div className="top-title mb-3 pb-2">TESTIMONIALS</div>
@@ -210,12 +195,7 @@ const Pricing = () => {
             <div className="desc mb-4 mt-3">
               No credit card required. 1/20 Cost cheap enough?
             </div>
-            <motion.div
-              initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-              whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              viewport={{ once: true }}
-            >
+            <AnimatedSection>
               <div className="testimonial-slider pt-5">
                 <Slider {...settings}>
                   <div className="testimonial-block text-start">
@@ -300,35 +280,20 @@ const Pricing = () => {
                   </div>
                 </Slider>
               </div>
-            </motion.div>
+             </AnimatedSection>
           </div>
         </section>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-        whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
+       </AnimatedSection>
+      <AnimatedSection>
         <section className="faq-sc text-center space-mr-m mb-5">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-md-9">
                 <div className="h1">Frequently asked questions</div>
-                <motion.div
-              initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-              whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              viewport={{ once: true }}
-            >
+                <AnimatedSection>
                 <p>Everything you need to know about the product and billing.</p>
-                </motion.div>
-                <motion.div
-              initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-              whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              viewport={{ once: true }}
-            >
+                 </AnimatedSection>
+                 <AnimatedSection>
                 <div class="accordion accordion-flush text-start mt-5" id="accordionFlushExample">
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
@@ -361,19 +326,14 @@ const Pricing = () => {
                     </div>
                   </div>
                 </div>
-                </motion.div>
+                 </AnimatedSection>
               </div>
             </div>
 
           </div>
         </section>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-        whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
+       </AnimatedSection>
+      <AnimatedSection>
         <section className="question-sc text-center">
           <div className="container">
             <div className="inner-sc">
@@ -393,7 +353,7 @@ const Pricing = () => {
             </div>
           </div>
         </section>
-      </motion.div>
+       </AnimatedSection>
 
     </div >
   )
