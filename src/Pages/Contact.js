@@ -1,9 +1,10 @@
-import React from 'react';
+import Reactt, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../Style/Contact.css";
 import { motion } from 'framer-motion';
+import AnimatedSection from '../Components/AnimatedSection';
 const settings = {
     centerMode: true,
     centerPadding: '30',
@@ -33,25 +34,129 @@ const settings = {
     ]
 
 };
-
+const logos = {
+    speed: 5000,
+    autoplay: true,
+    autoplaySpeed: 0,
+    cssEase: 'linear',
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    infinite: true,
+    swipeToSlide: true,
+    centerMode: true,
+    focusOnSelect: true,
+    arrows: false,
+    responsive: [
+        {
+            breakpoint: 950,
+            settings: {
+                slidesToShow: 3,
+            }
+        },
+        {
+            breakpoint: 767,
+            settings: {
+                slidesToShow: 1,
+            }
+        }
+    ]
+};
 function Contact() {
+    const tabcontent = [
+        {
+            id: 1, title: 'Safety', conten_ttitle: 'TIME & VALUE',
+            subtitle: 'We will help you keep your organization, employees and data safe.',
+            description: 'Every choice we make is to ensure safety so you don’t need to worry. We will always be safer than public solutions. We only offer connections when the provider guarantees not to reuse your data for any reason and then we provide further checks so you are always safer than public solutions.',
+            listItems: [
+                'No reuse of query data for any purpose.',
+                'All APIs are selected on the basis they guarantee data privacy.',
+                'Each client has own instance of portal with no shared information.',
+                'Uploads are all checked against GDPR rules and can be restricted.',
+                'Restrictions granular so each industry and organization can have own upload rules.'
+            ],
+            buttonText: 'Get Started',
+            buttonLink: '',
+            image: 'images/bg.png'
+        },
+        {
+            id: 2, title: 'Security & Certifications', conten_ttitle: 'TIME & VALUE',
+            subtitle: 'We will help you keep your organization, employees and data safe.',
+            description: 'Every choice we make is to ensure safety so you don’t need to worry. We will always be safer than public solutions. We only offer connections when the provider guarantees not to reuse your data for any reason and then we provide further checks so you are always safer than public solutions.',
+            listItems: [
+                'No reuse of query data for any purpose.',
+                'All APIs are selected on the basis they guarantee data privacy.',
+                'Each client has own instance of portal with no shared information.',
+                'Uploads are all checked against GDPR rules and can be restricted.',
+                'Restrictions granular so each industry and organization can have own upload rules.'
+            ],
+            buttonText: 'Get Started',
+            buttonLink: '',
+            image: 'images/bg2.png'
+        },
+        {
+            id: 3, title: 'Audit', conten_ttitle: 'TIME & VALUE',
+            subtitle: 'We will help you keep your organization, employees and data safe.',
+            description: 'Every choice we make is to ensure safety so you don’t need to worry. We will always be safer than public solutions. We only offer connections when the provider guarantees not to reuse your data for any reason and then we provide further checks so you are always safer than public solutions.',
+            listItems: [
+                'No reuse of query data for any purpose.',
+                'All APIs are selected on the basis they guarantee data privacy.',
+                'Each client has own instance of portal with no shared information.',
+                'Uploads are all checked against GDPR rules and can be restricted.',
+                'Restrictions granular so each industry and organization can have own upload rules.'
+            ],
+            buttonText: 'Get Started',
+            buttonLink: '',
+            image: 'images/bg3.png'
+        },
+        {
+            id: 4, title: 'Platform', conten_ttitle: 'TIME & VALUE',
+            subtitle: 'We will help you keep your organization, employees and data safe.',
+            description: 'Every choice we make is to ensure safety so you don’t need to worry. We will always be safer than public solutions. We only offer connections when the provider guarantees not to reuse your data for any reason and then we provide further checks so you are always safer than public solutions.',
+            listItems: [
+                'No reuse of query data for any purpose.',
+                'All APIs are selected on the basis they guarantee data privacy.',
+                'Each client has own instance of portal with no shared information.',
+                'Uploads are all checked against GDPR rules and can be restricted.',
+                'Restrictions granular so each industry and organization can have own upload rules.'
+            ],
+            buttonText: 'Get Started',
+            buttonLink: '',
+            image: 'images/bg1.webp'
+        },
+        {
+            id: 5, title: 'Time & value', conten_ttitle: 'TIME & VALUE',
+            subtitle: 'We will help you keep your organization, employees and data safe.',
+            description: 'Every choice we make is to ensure safety so you don’t need to worry. We will always be safer than public solutions. We only offer connections when the provider guarantees not to reuse your data for any reason and then we provide further checks so you are always safer than public solutions.',
+            listItems: [
+                'No reuse of query data for any purpose.',
+                'All APIs are selected on the basis they guarantee data privacy.',
+                'Each client has own instance of portal with no shared information.',
+                'Uploads are all checked against GDPR rules and can be restricted.',
+                'Restrictions granular so each industry and organization can have own upload rules.'
+            ],
+            buttonText: 'Get Started',
+            buttonLink: '',
+            image: 'images/bg1.webp'
+        },
+
+    ];
+    const [activeId, setActiveId] = useState(null);
+
+    useEffect(() => {
+        // Set the first item as active only on the first render
+        setActiveId(1);
+    }, []);
+    const handleClick = (id) => {
+        setActiveId(id);
+    };
+
     return (
         <div>
-            <motion.div
-                initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-                whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-                transition={{ duration: 0.8, ease: 'easeOut' }}
-                viewport={{ once: true }}
-            >
+            <AnimatedSection>
                 <section className="contact-sc text-center space-mr-m ">
                     <div className="container">
                         <div className="top-title mb-3 pb-2">ENTERPRISE</div>
-                        <motion.div
-                            initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-                            whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-                            transition={{ duration: 0.8, ease: 'easeOut' }}
-                            viewport={{ once: true }}
-                        >
+                        <AnimatedSection>
                             <h1 className="h1 btm-shadow">Built with enterprises, for enterprises</h1>
                             <div className="desc mb-4 mt-3">
                                 Your organization wants to keep itself safe, secure and well governed, we get it. We have done all the hard work to<br /> ensure your organizational, employee and data are protected.
@@ -60,131 +165,121 @@ function Contact() {
                                 <a class="btn  me-3" href="/login">Contact Sales</a>
                                 <a class="btn btn-t" href="/">Try for Free</a>
                             </div>
-                        </motion.div>
+                        </AnimatedSection>
                     </div>
 
 
                 </section>
-            </motion.div>
+            </AnimatedSection>
 
-            <motion.div
-                initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-                whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-                transition={{ duration: 0.8, ease: 'easeOut' }}
-                viewport={{ once: true }}
-            >
+            <AnimatedSection>
                 <section className="logo-sc   text-center space-mr-m ">
                     <div className="container ">
-                        <div className="top-title mb-3 pb-2">SOME OF OUR TRUSTED CLIENTS</div>
-                        <div className="d-flex justify-content-between mt-4">
-                            <div className="logo-blk ">
-                                <img src="images/logo.png" alt="" />
-                            </div>
-                            <div className="logo-blk ">
-                                <img src="images/logo.png" alt="" />
-                            </div>
-                            <div className="logo-blk ">
-                                <img src="images/logo2.png" alt="" />
-                            </div>
-                            <div className="logo-blk ">
-                                <img src="images/logo3.png" alt="" />
-                            </div>
-                            <div className="logo-blk ">
-                                <img src="images/logo4.png" alt="" />
-                            </div>
-                            <div className="logo-blk ">
-                                <img src="images/logo.png" alt="" />
+                        <div className="top-title1 mb-3 pb-2">SOME OF OUR TRUSTED CLIENTS</div>
+                        <div className="outer-wp position-relative">
+                            <div className=" mt-5">
+                                <Slider {...logos}>
+                                    <div className="logo-blk ">
+                                        <img src="images/logo.png" alt="" />
+                                    </div>
+                                    <div className="logo-blk ">
+                                        <img src="images/logo.png" alt="" />
+                                    </div>
+                                    <div className="logo-blk ">
+                                        <img src="images/logo2.png" alt="" />
+                                    </div>
+                                    <div className="logo-blk ">
+                                        <img src="images/logo3.png" alt="" />
+                                    </div>
+                                    <div className="logo-blk ">
+                                        <img src="images/logo4.png" alt="" />
+                                    </div>
+                                    <div className="logo-blk ">
+                                        <img src="images/logo.png" alt="" />
+                                    </div>
+                                </Slider>
                             </div>
                         </div>
                     </div>
 
 
                 </section>
-            </motion.div>
-            <motion.div
-                initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-                whileInView={{ opacity: 1, y: 0 }} // Animate to normal position and fully opaque
-                transition={{ duration: 0.8, ease: 'easeOut' }}
-                viewport={{ once: true }}
-            >
-                <section className="google-sc text-center">
+            </AnimatedSection>
+
+            <section className="google-sc  text-center">
+                <AnimatedSection>
                     <div className="container">
                         <div className="logo-sc mb-4">
                             <img src="images/logo2.png" alt="" />
                         </div>
-                        <h2 class="btm-shadow">“This incredible AI web app has transformed the way I manage<br /> data and streamline processes.”</h2>
+                        <div class="h1 btm-shadow">“This incredible AI web app has transformed the way I<br /> manage data and streamline processes.”</div>
                         <div className="img-sc mt-4 ">
                             <img src="images/pf.jpg" alt="" />
-                            <p className='p-0 mb-0 mt-4'>Candice Wu</p>
+                            <p className='p-0 mb-0 mt-4'><strong>Candice Wu</strong></p>
                             <p className='p-0 mt-0 mb-0'>Product Manager, Google</p>
                         </div>
-                    </div>
-                </section>
-            </motion.div>
-            <section className="tab-sc space-mr">
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-xl-8">
-                            <div className="row1 d-flex justify-content-between">
-                                <div className="btn tab-blk active-btn">
-                                    Safety
-                                </div>
-                                <div className="btn btn-t tab-blk">
-                                    Security & Certifications
-                                </div>
-                                <div className="btn btn-t tab-blk">
-                                    Audit
-                                </div>
-                                <div className="btn btn-t tab-blk">
-                                    Platform
-                                </div>
-                                <div className="btn btn-t tab-blk">
-                                    Platform
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="tab-content mt-5">
-                        <div className="tab-content-inner tab-inner1">
-                            <div className="top-title">
-                                TIME & VALUE
-                            </div>
-                            <h2 className='btm-shadow mt-4'>
-                                We will help you keep your organization, employees
-
-                                and data safe.
-                            </h2>
-                            <p>
-                                Every choice we make is to ensure safety so you don’t need to worry. We will always be safer than public solutions. We only offer connections when the provider guarantees not to reuse your data for any reason and then we provide further checks so you are always safer than public solutions.
-                            </p>
-                            <ul className='my-4'>
-                                <li> No reuse of query data for any purpose.</li>
-
-                                <li>All APIs are selected on the basis they guarantee data privacy.</li>
-
-                                <li>Each client has own instance of portal with no shared information.</li>
-
-                                <li>Uploads are all checked against GDPR rules and can be restricted.</li>
-
-                                <li>Restrictions granular so each industry and organization can have own upload rules.</li>
-                            </ul>
-                            <div className="btn-sc">
-                                <a href="" className="button">
-                                    Get Started  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" focusable="false" color="rgb(255, 255, 255)"><g color="rgb(255, 255, 255)" weight="bold"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></g></svg>
-
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                    </div>  </AnimatedSection>
             </section>
-            <motion.div
-                initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-                whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
-                transition={{ duration: 0.8, ease: 'easeOut' }}
-                viewport={{ once: true }}
-            >
+
+            <AnimatedSection>
+                <section className="tab-sc space-mr-m">
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            <div className="col-xl-8">
+                                <div className="row1 d-flex justify-content-between">
+                                    {tabcontent.map(item => (
+
+                                        <div className={`btn btn-t tab-blk ${item.id === activeId ? 'active-btn' : ''}`} key={item.id} onClick={() => handleClick(item.id)}>
+                                            {item.title}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        <div className='tab-content position-relative'>
+                            {tabcontent.map(item => (
+
+                                <div className={` tab-content-inner position-relative tab-content mt-5 ${item.id === activeId ? 'active-cnt ' : ''}`}>
+                                    <div className="contact-btn text-end">
+                                        <a href="btn" className='btn btm-shadow'><strong>Click Here</strong></a>
+                                    </div>
+                                    <div className="rgt-img">
+                                        <img src={item.image} alt="" />
+                                    </div>
+                                    <div className="btm-wrp">
+                                        <div className="top-title">
+                                            {item.title}
+                                        </div>
+                                        <h2 className='btm-shadow mt-4'>
+                                            {item.subtitle}
+                                        </h2>
+                                        <p>
+                                            {item.description}
+                                        </p>
+                                        <ul className='my-4'>
+                                            {item.listItems.map((listItem, index) => (
+                                                <li key={index}>{listItem}</li>
+                                            ))}
+                                        </ul>
+                                        <div className="btn-sc">
+                                            <a href={item.buttonLink} className="button">
+                                                {item.buttonText} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" focusable="false" color="rgb(255, 255, 255)"><g color="rgb(255, 255, 255)" weight="bold"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></g></svg>
+                                            </a>
+                                        </div></div>
+                                </div>
+                            ))}
+                            <div className="btm-layer">
+                                <div className="layer-wp ly-2">
+                                </div><div className="layer-wp ly-3">
+                                </div><div className="layer-wp ly-4">
+                                </div><div className="layer-wp ly-5">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>  </AnimatedSection>
+            <AnimatedSection>
                 <section className="testimonial-sc text-center space-mr-m">
                     <div className="container-fluid px-md-5 px-3 px-lg-0 overflow-hidden pb-5">
                         <div className="top-title mb-3 pb-2">TESTIMONIALS</div>
@@ -192,12 +287,7 @@ function Contact() {
                         <div className="desc mb-4 mt-3">
                             No credit card required. 1/20 Cost cheap enough?
                         </div>
-                        <motion.div
-                            initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-                            whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
-                            transition={{ duration: 0.8, ease: 'easeOut' }}
-                            viewport={{ once: true }}
-                        >
+                        <AnimatedSection>
                             <div className="testimonial-slider pt-5">
                                 <Slider {...settings}>
                                     <div className="testimonial-block text-start">
@@ -282,35 +372,20 @@ function Contact() {
                                     </div>
                                 </Slider>
                             </div>
-                        </motion.div>
+                        </AnimatedSection>
                     </div>
                 </section>
-            </motion.div>
-            <motion.div
-                initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-                whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
-                transition={{ duration: 0.8, ease: 'easeOut' }}
-                viewport={{ once: true }}
-            >
+            </AnimatedSection>
+            <AnimatedSection>
                 <section className="faq-sc text-center space-mr-m mb-5">
                     <div className="container">
                         <div className="row justify-content-center">
                             <div className="col-md-9">
                                 <div className="h2 text-white">Frequently asked questions</div>
-                                <motion.div
-                                    initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-                                    whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
-                                    transition={{ duration: 0.8, ease: 'easeOut' }}
-                                    viewport={{ once: true }}
-                                >
+                                <AnimatedSection>
                                     <p>Everything you need to know about the product and billing.</p>
-                                </motion.div>
-                                <motion.div
-                                    initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-                                    whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
-                                    transition={{ duration: 0.8, ease: 'easeOut' }}
-                                    viewport={{ once: true }}
-                                >
+                                </AnimatedSection>
+                                <AnimatedSection>
                                     <div class="accordion accordion-flush text-start mt-5" id="accordionFlushExample">
                                         <div class="accordion-item">
                                             <h2 class="accordion-header" id="flush-headingOne">
@@ -343,19 +418,14 @@ function Contact() {
                                             </div>
                                         </div>
                                     </div>
-                                </motion.div>
+                                </AnimatedSection>
                             </div>
                         </div>
 
                     </div>
                 </section>
-            </motion.div>
-            <motion.div
-                initial={{ opacity: 0, y: 150 }} // Start from 100px below and fully transparent
-                whileInView={{ opacity: 1, y: 0, once: true }} // Animate to normal position and fully opaque
-                transition={{ duration: 0.8, ease: 'easeOut' }}
-                viewport={{ once: true }}
-            >
+            </AnimatedSection>
+            <AnimatedSection>
                 <section className="question-sc text-center">
                     <div className="container">
                         <div className="inner-sc">
@@ -375,7 +445,7 @@ function Contact() {
                         </div>
                     </div>
                 </section>
-            </motion.div>
+            </AnimatedSection>
         </div>
     )
 }
