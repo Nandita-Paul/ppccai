@@ -412,3 +412,209 @@ body.hidden #root{
     position: relative;
   }
 }
+
+.google_serach_input::placeholder {
+  color: #fff;
+  opacity: 1; /* Firefox */
+}
+
+.google_serach_input::-ms-input-placeholder { /* Edge 12 -18 */
+  color: #fff;
+}
+
+.wrapper{
+  background: #000000;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+
+.desktop_mockup{
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+  background: #323232;
+  padding: 10px;
+  border-radius: 20px;
+padding-bottom: 30px;
+}
+
+.google_interface{
+  background: #1f1f1f;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  -webkit-box-shadow: -7px -7px 24px -9px rgba(0,0,0,0.43);
+  -moz-box-shadow: -7px -7px 24px -9px rgba(0,0,0,0.43);
+
+}
+
+.google_serach{
+  border-bottom: 1px solid #313131;
+  height: 80px;
+  padding-top: 20px;
+  padding-left: 50px;
+}
+
+.google_serach_input{
+width: 50%;
+border-radius: 50px;
+background: #303135;
+height: 40px;
+border: none;
+outline: none;
+padding: 20px;
+}
+
+.brand_logo_img{
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+}
+
+
+.google_serach_result{
+  padding-left: 50px;
+  padding-top: 20px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.brand_logo_img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+
+.serach_item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.barnd_name h6{
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color:#dadce0;
+  font-weight: normal;
+}
+
+
+.link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.website_link{
+  display: inline-block;
+  font-size: 12px;
+  color: #bdc1c6;
+  line-height: 18px;
+  text-decoration: none;
+}
+
+.modal_dot{
+  display: inline-block;
+  font-size: 18px;
+  color: #bdc1c6;
+}
+.serach_result_main a{
+  text-decoration: none;
+}
+
+.serach_result_main a h1 {
+  font-size: 20px;
+  line-height: 26px;
+  color: #c58af9;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.serach_result_main a h1:hover{
+text-decoration: underline;
+}
+
+.info{
+  color: #bdc1c6;
+  font-size: 14px;
+  line-height: 1.58;
+}
+
+.brand_name_highlisght{
+  font-weight: bold;
+}
+
+.Ktlw8e{
+margin: 0;
+max-width: 568px;
+width: 100%;
+padding: 18px 0 4px 16px;
+}
+
+.iCzAIb a{
+  font-size: 20px;
+  line-height: 26px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.iCzAIb a:hover{
+  border-bottom: 2px solid #fff;
+}
+.d-none-icon{
+  display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .wrapper{
+      padding: 10px;
+  }
+  .google_serach {
+      padding: 20px 20px;
+  }
+  .google_serach_input{
+      width: 100%;
+  }
+  .google_serach_result{
+      padding: 20px 20px;
+  }
+  .serach_result_main h1 a {
+      font-size: 18px;
+      color: #c58af9;
+      text-decoration: none;
+      font-weight: normal;
+  }
+  .d-none{
+      display: none;
+  }
+
+  .iCzAIb a{
+      font-size: 16px;
+      line-height: 20px; 
+      
+  }
+  .Ktlw8e{
+      padding: 15px 0px;
+      border-bottom: 1px solid #313131;
+ 
+  }
+  .d-flx{
+      display: flex;
+      justify-content: space-between;
+  }
+  .d-none-icon{
+      display: block;
+      font-size: 25px;
+      color: #fff;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+
+}
