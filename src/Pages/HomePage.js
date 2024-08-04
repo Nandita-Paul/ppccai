@@ -51,69 +51,109 @@ function Homepage() {
     }));
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post(
-        "https://ppcc.onrender.com/generate",
-        generateSite
-      );
-      if (response.status == 201) {
 
-        setSiteData(response.data);
+      const [responseGenerate, responseGetInfo] = await Promise.all([
+        axios.post("https://ppcc.onrender.com/generate", generateSite),
+        axios.post("https://ppcc.onrender.com/get_site_info",generateSite)
+      ]);
+        setSiteData(responseGenerate.data);
         setShowModalNext(true);
-      }
+
+        console.log("Site Info:", responseGetInfo.data);
+     
     } catch (error) {
       console.error("Error:", error);
     } finally {
       setLoading(false);
     }
   };
+  
 
 
 
-  const handleSubmit1 = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      if (siteData && siteData.Description) {
-        const updatedGenerateSheet = {
-          ...generateSheet,
-          site_description: siteData.Description,
-        };
-        const response = await axios.post("https://ppcc.onrender.com/generate_campaign", updatedGenerateSheet);
-        console.log("Response:", response);
 
-        if (response.status === 201) {
-          alert(response.status);
-          setSiteData(response.data);
-          setShowModalNext(false);
-          setShowModalPara(true);
-        }
-      } else {
-        console.error("siteData or siteData.Description is not available.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    } finally {
-      setLoading(false);
+
+
+const ExtractFunc = async () => {
+  setLoading(true);
+  try {
+    // Make the API request
+    const response = await axios.get("https://ppcc.onrender.com/extract", 
+      // {
+      // sheet_url: "",
+      // sheet_url: generateSheet.sheet_url,
+
+      // responseType: 'blob', // Important for handling binary data
+    // }
+  );
+
+    // Check if response status is 201
+    if (response.status === 200) {
+      // Create a Blob from the response data
+      const blob = new Blob([response.data], { type: 'text/csv' });
+      
+      // Create a link element
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'data.csv'; // File name for the downloaded CSV
+      
+      // Append the link to the body and click it to start the download
+      document.body.appendChild(link);
+      link.click();
+      
+      // Clean up and remove the link
+      document.body.removeChild(link);
+      
+      alert("Download started");
     }
-  };
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Failed to download the file");
+  } finally {
+    setLoading(false);
+  }
+};
 
 
-  const ExtractFunc = async () => {
-    try {
-      const response = await axios.get("https://ppcc.onrender.com/extract");
-      if (response.status == 201) {
-        alert("Download")
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+const handleSubmitSheet = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  try {
+
+    const response = await Promise.all([
+      axios.post("https://ppcc.onrender.com/generate_ads", {
+        sheet_url:"https://docs.google.com/spreadsheets/d/1cNnY8nJvSIl0_pNnzP9uHmZwqjGDApbsNqjlKcaL9kI/edit?gid=0#gid=0",
+        site_url: "https://www.coursera.org/courses?query=digital%20marketing.",
+        site_texts:["Digital Marketing","Meta Social Media Marketing","Google Ads for Beginners","Attract and Engage Customers with Digital Marketing"],
+        site_links:["https://www.coursera.org/specializations/digital-marketing",
+        "https://www.coursera.org/professional-certificates/facebook-social-media-marketing",
+        "https://www.coursera.org/projects/google-ads-beginner",
+        "https://www.coursera.org/learn/attract-and-engage-customers"],
+        number_of_ads:"4"
+        
+        }),
+
+    ]);
+    console.log("response",response);
+    
+      // setSiteData(responseGenerate.data);
+      // setShowModalNext(true);
+
+      // console.log("Site Info:", responseGetInfo.data);
+   
+  } catch (error) {
+    console.error("Error:", error);
+  } finally {
+    setLoading(false);
+  }
+};
+
+
 
   return (
     <div className="main">
@@ -137,26 +177,26 @@ function Homepage() {
                 <AnimatedSection>
                   <div className="banner-form-sec mt-5">
                     <form className="d-md-flex justify-content-center align-items-center">
-
+      
                       <div className="form-group me-3">
                         {!showModalNext ?
-                          <input
-                            placeholder="www.yourwebsite.com"
-                            className="form-control"
-                            name="site_url"
-                            value={generateSite.site_url}
-                            onChange={handleFunc}
-
-                          /> :
-                          <input
-                            placeholder="sheet url...."
-                            className="form-control"
-                            name="sheet_url"
-                            value={generateSheet.sheet_url}
-                            onChange={handleSheetFunc}
-                          />
+                         <input
+                         placeholder="www.yourwebsite.com"
+                         className="form-control"
+                         name="site_url"
+                         value={generateSite.site_url}
+                         onChange={handleFunc}
+                         
+                       />:
+                       <input
+                       placeholder="sheet url...."
+                       className="form-control"
+                       name="sheet_url"
+                       value={generateSheet.sheet_url}
+                       onChange={handleSheetFunc}
+                     />
                         }
-
+                       
                       </div>
 
 
@@ -164,9 +204,9 @@ function Homepage() {
                         <button
                           type="button"
                           className="btn "
-                          onClick={!showModalNext ? handleSubmit : handleSubmit1}
+                          onClick={!showModalNext ? handleSubmit : ExtractFunc}
                         >
-                          {!showModalNext ? " Generate ad" : " Generate campaign"}
+                         {!showModalNext ? " Generate ad":" Generate campaign"}
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 256 256"
@@ -179,8 +219,16 @@ function Homepage() {
                           </svg>
                         </button>
                       </div>
+
+                      <button onClick={ExtractFunc} disabled={loading}>
+        {loading ? 'Downloading...' : 'Download CSV'}
+      </button>
+      <button onClick={handleSubmitSheet} disabled={loading}>
+        sheet_url
+      </button>
+      
                     </form>
-                    {setShowModalPara && <p>Success....</p>}
+  {/* {setShowModalPara && <p>Success....</p>} */}
                     {/* <form className="d-md-flex justify-content-center align-items-center">
                       <div className="form-group me-3">
                         <input
@@ -247,160 +295,152 @@ function Homepage() {
 
         <section className="frame-image-sc bg-black space-mr">
           <AnimatedSection>
-            <div className="container">
-            <div class="wrapper">
-              <div class="desktop_mockup">
-                <div class="google_interface">
-                  <div class="header_area">
-                    <div class="header_ser">
-                      <div class="serach_wrapper">
-                        <div class="google_logo">
-                          <img src="images/Google_2015_logo.svg.png" alt="" height="40px"/>
-                        </div>
-                        <div class="google_serach">
-                          <div class="ser">
-                            <input type="text" class="google_serach_input"/>
-                              <div class="close d-none" >
-                                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-                              </div>
-                          </div>
-                          <div class="end_area">
-                            <button class=" goog_btn mic">
-                              <img src="images/Google_mic.svg" alt=""/>
-                            </button>
-                            <button class=" goog_btn lens">
-                              <img src="images/7123028_lens_google_icon.svg" alt=""/>
-                            </button>
-                            <button class=" goog_btn serch_ico">
-                              <img src="images/Vector_search_icon.svg.png" alt=""/>
-                            </button>
-                          </div>
-
-                        </div>
-                      </div>
-                      <div class="right ">
-                        <div class="search_labs">
-                          <img src="images/serachlabs.png" alt="" width="25px"/>
-                        </div>
-                        <div class="google_apps">
-                          <img src="images/186401_grid_icon.png" alt="" width="25px"/>
-
-                        </div>
-                        <div class="gmail">
-                          <img src="images/gamil.png" alt=""/>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="tabs">
-                      <div class="left_tabs">
-                        <button class="tab_btn active">All</button>
-                        <button class="tab_btn">Images</button>
-                        <button class="tab_btn">Videos</button>
-                        <button class="tab_btn">News</button>
-                        <button class="tab_btn">Shopping</button>
-                        <button class="tab_btn">Maps</button>
-                        <button class="tab_btn">Books</button>
-                        <button class="tab_btn d-none"> <span><i class='bx bx-dots-vertical-rounded'></i></span> More</button>
-                      </div>
-                      <div class="right_tabs d-none">
-                        <button class="tab_btn ">Tool</button>
-                      </div>
-                    </div>
+            <div className="wrapper">
+              <div className="desktop_mockup">
+                <div className="google_interface">
+                  <div className="google_serach">
+                    <input type="text" className="google_serach_input" />
                   </div>
-                  <div class="capsul_tab">
-                    <button class="capsul">Free</button>
-                    <button class="capsul">Reviews</button>
-                    <button class="capsul">Open Now</button>
-                    <button class="capsul">Clips</button>
-                    <button class="capsul">Pricing</button>
-                    <button class="capsul">Alternative</button>
-                  </div>
-                  <div class="google_serach_result">
-                    <div class="serach_item">
-                      <div class="brand_logo_img">
-                        <img src="images/download.png" alt=""/>
+                  <div className="google_serach_result">
+                    <div className="serach_item">
+                      <div className="brand_logo_img">
+                        <img src="images/download.png" alt="" />
                       </div>
-                      <div class="brand_info">
-                        <div class="barnd_name">
+                      <div className="brand_info">
+                        <div className="barnd_name">
                           <h6>GetMunch</h6>
-                          <div class="link">
-                            <a href="https://www.getmunch.com" target="_blank" class="website_link">https://www.getmunch.com</a>
-                            <a href="" class="modal_dot"><i class='bx bx-dots-vertical-rounded' ></i></a>
+                          <div className="link">
+                            <a
+                              href="https://www.getmunch.com"
+                              target="_blank"
+                              className="website_link"
+                            >
+                              https://www.getmunch.com
+                            </a>
+                            <a href="" className="modal_dot">
+                              <i className="bx bx-dots-vertical-rounded"></i>
+                            </a>
                           </div>
-
                         </div>
                       </div>
                     </div>
-                    <div class="serach_result_main">
-
-                      <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujnDj13SG5uIE0xTl617SuBP3vYSLCBm1vr0jMR6uF-aQm83rxWE5xRoCpd0QAvD_BwE" class="" target="_blank">
-                        <h1>  GetMunch - AI Video Editing | Munch App - Register Now</h1>
+                    <div className="serach_result_main">
+                      <a
+                        href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujnDj13SG5uIE0xTl617SuBP3vYSLCBm1vr0jMR6uF-aQm83rxWE5xRoCpd0QAvD_BwE"
+                        className=""
+                        target="_blank"
+                      >
+                        <h1>
+                          {" "}
+                          GetMunch - AI Video Editing | Munch App - Register Now
+                        </h1>
                       </a>
 
-                      <p class="info"><span class="brand_name_highlisght">Munch</span> extracts the most engaging, trending and impactful clips from your long-form videos.
-                        <span class="brand_name_highlisght">Munch</span> is centered around machine learning capabilities, designed to keep what's important.</p>
+                      <p className="info">
+                        <span className="brand_name_highlisght">Munch</span>{" "}
+                        extracts the most engaging, trending and impactful clips
+                        from your long-form videos.
+                        <span className="brand_name_highlisght">Munch</span> is
+                        centered around machine learning capabilities, designed
+                        to keep what's important.
+                      </p>
                     </div>
-                    <div class="Ktlw8e">
-                      <div class="iCzAIb">
-                        <div class="d-flx">
-                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" class="">
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a
+                            href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE"
+                            className=""
+                          >
                             GetMunch Pricing
                           </a>
-                          <div class="icon d-none-icon"><i class='bx bx-chevron-right'></i></div>
+                          <div className="icon d-none-icon">
+                            <i className="bx bx-chevron-right"></i>
+                          </div>
                         </div>
-                        <p class="info d-none">Check Out The Pricing And Pick The Best Plan</p>
+                        <p className="info d-none">
+                          Check Out The Pricing And Pick The Best Plan
+                        </p>
                       </div>
                     </div>
-                    <div class="Ktlw8e">
-                      <div class="iCzAIb">
-                        <div class="d-flx">
-                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" class="">
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a
+                            href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE"
+                            className=""
+                          >
                             Login
                           </a>
-                          <div class="icon d-none-icon"><i class='bx bx-chevron-right'></i></div>
+                          <div className="icon d-none-icon">
+                            <i className="bx bx-chevron-right"></i>
+                          </div>
                         </div>
-                        <p class="info d-none">Enter the Required Details To Log In To Your Account.</p>
+                        <p className="info d-none">
+                          Enter the Required Details To Log In To Your Account.
+                        </p>
                       </div>
                     </div>
-                    <div class="Ktlw8e">
-                      <div class="iCzAIb">
-                        <div class="d-flx">
-                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" class="">
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a
+                            href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE"
+                            className=""
+                          >
                             Main Page
                           </a>
-                          <div class="icon d-none-icon"><i class='bx bx-chevron-right'></i></div>
+                          <div className="icon d-none-icon">
+                            <i className="bx bx-chevron-right"></i>
+                          </div>
                         </div>
-                        <p class="info d-none">Get To Know Us And Find Out More</p>
+                        <p className="info d-none">
+                          Get To Know Us And Find Out More
+                        </p>
                       </div>
                     </div>
-                    <div class="Ktlw8e">
-                      <div class="iCzAIb">
-                        <div class="d-flx">
-                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" class="">
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a
+                            href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE"
+                            className=""
+                          >
                             Become An Affiliate
                           </a>
-                          <div class="icon d-none-icon"><i class='bx bx-chevron-right'></i></div>
+                          <div className="icon d-none-icon">
+                            <i className="bx bx-chevron-right"></i>
+                          </div>
                         </div>
 
-                        <p class="info d-none">Fill Out the Form With Your Details To Join Our Program.</p>
+                        <p className="info d-none">
+                          Fill Out the Form With Your Details To Join Our
+                          Program.
+                        </p>
                       </div>
                     </div>
-                    <div class="Ktlw8e">
-                      <div class="iCzAIb">
-                        <div class="d-flx">
-                          <a href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE" class="">
+                    <div className="Ktlw8e">
+                      <div className="iCzAIb">
+                        <div className="d-flx">
+                          <a
+                            href="https://www.getmunch.com/?everid=&oid=2&affid=45&source_id=munch-pricing&gad_source=1&gclid=CjwKCAjw5Ky1BhAgEiwA5jGujvEvl46e6lRPJumAVHq3s3IGvPwjOdtBDxZykDHpcU9tw1d7DbP84xoCu_QQAvD_BwE"
+                            className=""
+                          >
                             Our Blog
                           </a>
-                          <div class="icon d-none-icon"><i class='bx bx-chevron-right'></i></div>
+                          <div className="icon d-none-icon">
+                            <i className="bx bx-chevron-right"></i>
+                          </div>
                         </div>
 
-                        <p class="info d-none">Check Out Our Blog And Get Inspired</p>
+                        <p className="info d-none">
+                          Check Out Our Blog And Get Inspired
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
             </div>
           </AnimatedSection>
         </section>
@@ -419,8 +459,8 @@ function Homepage() {
                 <div className="btn-sc d-md-flex align-items-center">
                   <div>
                     <button onClick={ExtractFunc} className="btn btn-sq me-3">
-                      Extract{" "}
-                      <img src="/images/rgt-ar.svg" className="ms-2" alt="" />
+                    Extract{" "}
+                    <img src="/images/rgt-ar.svg" className="ms-2" alt="" />
                     </button>
                     {/* <a href="" className="btn btn-sq me-3">
                       Extract{" "}
@@ -429,8 +469,9 @@ function Homepage() {
                   </div>
                   <div className="outer-more-settings position-relative">
                     <div
-                      className={`more-settings py-4 ${isActive ? "active" : ""
-                        }`}
+                      className={`more-settings py-4 ${
+                        isActive ? "active" : ""
+                      }`}
                     >
                       <div className="btn btn-t btn-sq" onClick={handleToggle}>
                         More Settings
