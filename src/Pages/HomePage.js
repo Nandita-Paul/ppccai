@@ -247,6 +247,7 @@ function Homepage() {
 
         <section className="frame-image-sc bg-black space-mr">
           <AnimatedSection>
+            <div className="container">
             <div class="wrapper">
               <div class="desktop_mockup">
                 <div class="google_interface">
@@ -399,6 +400,7 @@ function Homepage() {
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </AnimatedSection>
         </section>
