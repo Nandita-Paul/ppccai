@@ -108,7 +108,7 @@ const Resource = () => {
                   <div className="row align-items-center">
                     <div className="col-md-4">
                       <div class="container11">
-                        <div class="icon">⚡</div>
+                        <div class="icon1">⚡</div>
                         <div class="title">Chat Portal</div>
                         <div class="desc mb-4">
                           Enterprise grade web-based portal providing safe and
@@ -119,7 +119,7 @@ const Resource = () => {
                     </div>
                     <div className="col-md-4">
                       <div class="container11">
-                        <div class="icon">⚡</div>
+                        <div class="icon1">⚡</div>
                         <div class="title">Mobile Application</div>
                         <div class="desc mb-4">
                           Replicates portal capabilities in a mobile friendly and
@@ -130,7 +130,7 @@ const Resource = () => {
                     </div>
                     <div className="col-md-4">
                       <div class="container11">
-                        <div class="icon">⚡</div>
+                        <div class="icon1">⚡</div>
                         <div class="title">Administration Portal</div>
                         <div class="desc mb-4">
                           Organizational administrators can manage employee access,
